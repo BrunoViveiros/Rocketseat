@@ -38,6 +38,7 @@ html {
   height: 27px;
   width: 70%;
   max-width: 940px;
+  min-width: 940px; /*temporario até o responsivo*/
   color: var(--color-font);
 }
 
@@ -62,6 +63,7 @@ html {
 .main {
   width: 70%;
   max-width: 940px;
+  min-width: 940px; /*temporario até o responsivo*/
   margin: 0 auto;
   color: var(--color-font);
 }
@@ -155,6 +157,7 @@ html {
 .about-page {
   width: 70%;
   max-width: 940px;
+  min-width: 940px; /*temporario até o responsivo*/
   margin: 0 auto 50px;
   color: #444;
 }
