@@ -119,6 +119,7 @@ body {
   height: 140px;
   border-radius: 15px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .recipe-card .title {
@@ -237,4 +238,5 @@ body {
 .modal-overlay .close {
   font-size: 16px;
   color: var(--color-font-very-light);
+  cursor: pointer;
 }
