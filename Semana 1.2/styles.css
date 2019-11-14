@@ -188,9 +188,14 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+
+.modal-overlay.-active {
   opacity: 1;
   visibility: visible;
-  text-align: center;
 }
 
 .modal-overlay .modal {
