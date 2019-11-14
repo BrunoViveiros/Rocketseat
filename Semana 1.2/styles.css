@@ -28,7 +28,7 @@ body {
 
 /*=== MAIN === */
 
-.header {
+.main-header {
   display: flex;
   margin: 35px auto 30px auto;
   height: 27px;
@@ -36,12 +36,12 @@ body {
   max-width: 940px;
 }
 
-.header > .nav {
+.main-header > .nav {
   width: 100%;
   margin-left: 9%;
 }
 
-.header .link {
+.main-header .link {
   display: inline-block;
   font-size: 16px;
   line-height: 27px;
@@ -54,7 +54,7 @@ body {
   margin: 0 auto;
 }
 
-.container {
+.main-description {
   border-radius: 30px;
   height: 366px;
   background-color: #fbdfdb;
@@ -62,25 +62,25 @@ body {
   justify-content: space-between;
 }
 
-.container > .text {
+.main-description > .text {
   margin-left: 60px;
   width: 320px;
   align-self: center;
 }
 
-.container .title {
+.main-description .title {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.container .description {
+.main-description .description {
   color: rgba(0, 0, 0, 0.7);
   font-size: 18px;
   line-height: 28px;
 }
 
-.container img {
+.main-description .image {
   margin-right: 100px;
   height: 300px;
   align-self: flex-end;
