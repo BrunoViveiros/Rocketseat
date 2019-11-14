@@ -24,16 +24,16 @@ a {
 
 body {
   font-family: "Roboto", sans-serif;
-  color: var(--color-font);
 }
 
 /*=== MAIN === */
 
 .header {
   display: flex;
-  padding: 0 15%;
-  margin: 35px 0 30px 0;
+  margin: 35px auto 30px auto;
   height: 27px;
+  width: 70%;
+  max-width: 940px;
 }
 
 .header > .nav {
@@ -46,4 +46,42 @@ body {
   font-size: 16px;
   line-height: 27px;
   margin-right: 30px;
+}
+
+.main {
+  width: 70%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.container {
+  border-radius: 30px;
+  height: 366px;
+  background-color: #fbdfdb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container > .text {
+  margin-left: 60px;
+  width: 320px;
+  align-self: center;
+}
+
+.container .title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.container .description {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.container img {
+  margin-right: 100px;
+  height: 300px;
+  align-self: flex-end;
 }
