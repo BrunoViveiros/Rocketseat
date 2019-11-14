@@ -101,6 +101,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .recipe-card {
@@ -123,4 +124,16 @@ body {
 .recipe-card .author {
   font-size: 14px;
   color: var(--color-font-light);
+}
+
+.main-footer {
+  background-color: #eee;
+  height: 62px;
+}
+
+.main-footer > .text {
+  color: var(--color-font-very-light);
+  font-size: 14px;
+  text-align: center;
+  line-height: 62px;
 }
