@@ -1,0 +1,72 @@
+{% extends "layout.html" %} {% block content %}
+
+<main class="main">
+  <section class="main-description">
+    <div class="text">
+      <h1 class="title">As melhores receitas</h1>
+      <p class="description">
+        Aprenda a construir os melhores pratos com receitas criadas por
+        profissionais do mundo inteiro.
+      </p>
+    </div>
+    <img class="image" src="/assets/chef.png" alt="Desenho de um chef" />
+  </section>
+
+  <section class="main-recipes">
+    <h2 class="title">Mais acessadas</h2>
+    <div class="recipes">
+      <div class="recipe-card">
+        <img class="image" src="/assets/burger.png" alt="Foto de um burger" />
+        <p class="title">Triplo bacon burger</p>
+        <p class="author">por Jorge Relato</p>
+      </div>
+
+      <div class="recipe-card">
+        <img class="image" src="/assets/pizza.png" alt="Foto de uma pizza" />
+        <p class="title">Pizza 4 estações</p>
+        <p class="author">por Fabiana Melo</p>
+      </div>
+
+      <div class="recipe-card">
+        <img
+          class="image"
+          src="/assets/espaguete.png"
+          alt="Foto de um prato de espaguete"
+        />
+        <p class="title">Espaguete ao alho</p>
+        <p class="author">por Júlia Kinoto</p>
+      </div>
+
+      <div class="recipe-card">
+        <img
+          class="image"
+          src="/assets/lasanha.png"
+          alt="Foto de uma lasanha"
+        />
+        <p class="title">Lasanha mac n’ cheese</p>
+        <p class="author">por Juliano Vieira</p>
+      </div>
+
+      <div class="recipe-card">
+        <img
+          class="image"
+          src="/assets/doce.png"
+          alt="Foto de Docinhos pão-do-céu"
+        />
+        <p class="title">Docinhos pão-do-céu</p>
+        <p class="author">por Ricardo Golvea</p>
+      </div>
+
+      <div class="recipe-card">
+        <img class="image" src="/assets/asinhas.png" alt="Foto de uma pizza" />
+        <p class="title">Asinhas de frango ao barbecue</p>
+        <p class="author">por Vania Steroski</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %} {% block script %}
+<script src="/script.js"></script>
+
+{% endblock %}
