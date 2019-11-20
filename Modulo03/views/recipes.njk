@@ -8,7 +8,7 @@
 
     <div class="recipes">
       {% for recipe in recipes %}
-        <div class="recipe-card">
+        <div data-index="{{loop.index0}}" class="recipe-card">
           <img class="image" src="{{recipe.image}}" alt="Foto de {{recipe.title}}"/>
           <p class="title">{{recipe.title}}</p>
           <p class="author">Por
@@ -16,7 +16,7 @@
         </div>
       {% endfor %}
       {% for recipe in recipes %}
-        <div class="recipe-card">
+        <div data-index="{{loop.index0}}" class="recipe-card">
           <img class="image" src="{{recipe.image}}" alt="Foto de {{recipe.title}}"/>
           <p class="title">{{recipe.title}}</p>
           <p class="author">Por
