@@ -2,7 +2,7 @@
   "name": "modulo03",
   "version": "1.0.0",
   "description": "Nesse desafio você irá refatorar, ou seja, reescrever algumas partes, do seu código do desafio anterior, o Foodfy.",
-  "main": "data.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
