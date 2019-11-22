@@ -1,0 +1,12 @@
+{
+  "instructors": [
+    {
+      "avatar_url": "http://google.com",
+      "name": "Ajina",
+      "birth": 1355270400000,
+      "gender": "F",
+      "services": "Musculação",
+      "created_at": 1574422226381
+    }
+  ]
+}
