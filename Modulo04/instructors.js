@@ -1,6 +1,27 @@
 const fs = require("fs");
 const data = require("./data.json");
 
+//SHOW
+exports.show = function(req, res) {
+  const { id } = req.params;
+
+  const foundInstructor = data.instructors.find(function(instructor) {
+    return id == instructor.id;
+  });
+
+  if (!foundInstructor) return res.send("instructor not found!");
+
+  const instructor = {
+    ...foundInstructor,
+    age: "",
+    gender: "",
+    services: "",
+    created_at: ""
+  };
+
+  return res.render("instructors/show", { instructor: foundInstructor });
+};
+
 //CREATE
 exports.post = function(req, res) {
   const keys = Object.keys(req.body);
