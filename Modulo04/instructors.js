@@ -1,4 +1,5 @@
 const fs = require("fs");
+Intl = require("intl");
 const data = require("./data.json");
 const { age } = require("./utils");
 
