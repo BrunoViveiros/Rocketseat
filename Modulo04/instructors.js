@@ -57,5 +57,16 @@ exports.post = function(req, res) {
 };
 
 //UPDATE
+exports.edit = function(req, res) {
+  const { id } = req.params;
+
+  const foundInstructor = data.instructors.find(function(instructor) {
+    return id == instructor.id;
+  });
+
+  if (!foundInstructor) return res.send("instructor not found!");
+
+  return res.render("instructors/edit", { instructor: foundInstructor });
+};
 
 //DELETE
