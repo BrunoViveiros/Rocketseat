@@ -1,5 +1,28 @@
 {
-  "members": [],
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1513351974182-1f36b4d965d8?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500",
+      "name": "Carlos",
+      "email": "carlos@email.com",
+      "birth": 317865600000,
+      "gender": "M",
+      "blood": "B+",
+      "weight": "90",
+      "height": "180"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1518310196561-83e486e8f9de?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500",
+      "name": "Fernanda",
+      "email": "fernanda@email.com",
+      "birth": 325382400000,
+      "gender": "F",
+      "blood": "AB+",
+      "weight": "65",
+      "height": "170"
+    }
+  ],
   "instructors": [
     {
       "id": 2,
