@@ -1,17 +1,5 @@
 {
-  "members": [
-    {
-      "id": 1,
-      "avatar_url": "https://images.unsplash.com/photo-1483721310020-03333e577078?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500",
-      "name": "Jorge Amado",
-      "email": "jorge@email.com",
-      "birth": 1001894400000,
-      "gender": "M",
-      "blood": "O+",
-      "weight": "90",
-      "height": "180"
-    }
-  ],
+  "members": [],
   "instructors": [
     {
       "id": 2,
