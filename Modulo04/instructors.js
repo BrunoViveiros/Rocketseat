@@ -77,7 +77,7 @@ exports.edit = function(req, res) {
 //PUT
 
 exports.put = function(req, res) {
-  const { id } = req.params;
+  const { id } = req.body;
 
   const foundInstructor = data.instructors.find(function(instructor) {
     return id == instructor.id;

@@ -1,10 +1,10 @@
 {
   "instructors": [
     {
-      "id": 1,
+      "id": "1",
       "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
       "name": "Rayssa",
-      "birth": 1546300800000,
+      "birth": 1106956800000,
       "gender": "F",
       "services": "Musculação, Crossfit",
       "created_at": 1574423299232
@@ -37,7 +37,7 @@
       "created_at": 1574440118916
     },
     {
-      "id": 5,
+      "id": "5",
       "avatar_url": "http://google.com",
       "name": "Zyra",
       "birth": 631152000000,
