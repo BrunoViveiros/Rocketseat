@@ -2,7 +2,7 @@
   "instructors": [
     {
       "id": 2,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "avatar_url": "https://images.unsplash.com/photo-1540472736333-c6e6bea01513?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500",
       "name": "Mayka",
       "birth": 325987200000,
       "gender": "F",
@@ -11,30 +11,12 @@
     },
     {
       "id": 3,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
+      "avatar_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500",
       "name": "Bruno Fernandes",
       "birth": 799286400000,
       "gender": "M",
       "services": "Natação",
       "created_at": 1574439381059
-    },
-    {
-      "id": 4,
-      "avatar_url": "http://google.com",
-      "name": "Ray",
-      "birth": 315532800000,
-      "gender": "F",
-      "services": "Natação",
-      "created_at": 1574440118916
-    },
-    {
-      "id": 5,
-      "avatar_url": "http://google.com",
-      "name": "Zyra",
-      "birth": 631152000000,
-      "gender": "F",
-      "services": "Teste, Aju",
-      "created_at": 1574802953064
     }
   ]
 }
