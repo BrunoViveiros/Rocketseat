@@ -18,4 +18,6 @@ routes.get("/recipe/:index", (req, res) => {
 
 //ADMIN
 
+routes.get("/admin/", (req, res) => res.render("admin/index")); // Mostrar a lista de receitas
+
 module.exports = routes;

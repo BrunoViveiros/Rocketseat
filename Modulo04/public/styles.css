@@ -259,3 +259,15 @@ html {
 .recipe-page section.-active .text {
   display: block;
 }
+
+/*=== ADMIN ===*/
+
+.admin-header {
+  background-color: #111;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 15%;
+  box-sizing: border-box;
+}
