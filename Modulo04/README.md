@@ -1,53 +1,118 @@
-# Refatorando Foodfy
+# Administração do Foodfy
 
-Nesse desafio você irá refatorar, ou seja, reescrever algumas partes, do seu código do desafio anterior, o Foodfy.
+Nesse desafio você irá criar uma área administrativa para o Foodfy, aplicação que desenvolvemos nos desafios anteriores.
 
-Até esse módulo não conhecíamos sobre back-end, ou seja, todos dados da nossa página ficavam no próprio front-end (arquivos HTML).
+Você utilizará o mesmo projeto do Foodfy desenvolvido no desafio anterior e somente adicionar essa área administrativa, que será responsável por cadastrar, editar e deletar os dados que estão no seu arquivo: `data.js`
 
-Agora que conhecemos sobre Node.js vamos tornar a exibição dos dados mais dinâmica :rocket:
+## Rotas do administrador
 
-## Arquivo de dados
+Usando os conhecimentos adquiridos até aqui, você deve criar rotas para uma área administrativa, onde o usuário poderá cadastrar novas receitas, apresentá-las, além de atualizar e deletar também.
 
-Crie um arquivo `data.js` na raiz do seu projeto com o conteúdo do link abaixo:
+Use a seguinte ideia para criar suas rotas.
 
-[Arquivo data.js](https://github.com/Rocketseat/bootcamp-launchbase-desafios-03/blob/master/desafios/01-refatorando-foodfy.md)
+```js
+routes.get("/admin/recipes", recipes.index); // Mostrar a lista de receitas
+routes.get("/admin/recipes/create", recipes.create); // Mostrar formulário de nova receita
+routes.get("/admin/recipes/:id", recipes.show); // Exibir detalhes de uma receita
+routes.get("/admin/recipes/:id/edit", recipes.edit); // Mostrar formulário de edição de receita
 
-## Alterações no projeto
+routes.post("/admin/recipes", recipes.post); // Cadastrar nova receita
+routes.put("/admin/recipes", recipes.put); // Editar uma receita
+routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
+```
 
-Use os dados das receitas contidos no arquivo `data.js` para a página de listagem de receitas e para a home.
+Dica: Você pode criar pasta(s) para organizar os arquivos do seu projeto.
 
-Na home, liste as 6 primeiras receitas, não é necessário agora sabermos sobre as receitas mais acessadas.
+## Detalhes da Receita
 
-Na listagem, liste todas receitas do arquivo.
+Para facilitar a busca de uma receita cadastrada, você pode usar a mesma forma de busca pelo index do `array` de `recipes` que foi apresentada no desafio anterior e desconsiderar o uso de um `id` único para cada receita, como apresentado nas aulas deste módulo.
 
-_Obs.: Você precisará converter seu projeto em um projeto Node.js usando Nunjucks para mostrar cada página._
+Mais pra frente entenderemos o uso dos ID's de forma mais profunda :wink:
 
-## Detalhe da receita
+## Layout do painel de administração
 
 <div align="center">
-  <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/mockup-detalhe-receita.png" />
+   <img src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/mockup-desafio-04.png" />
 </div>
-
-- Ao clicar em uma receita agora o usuário deve ser redirecionado para uma nova página contendo todas informações da receita como ingredientes, modo de preparo e informações adicionais (todas essas informações estão contidas no arquivo `data.js`).
-- Na página de listagem não é mais necessário abrir o modal como tínhamos no desafio anterior do Foodfy.
 
 **Download dos arquivos:** https://github.com/Rocketseat/bootcamp-launchbase-desafios-03/archive/master.zip
 
 Acesse o arquivo `layouts/specs/index.html` para ver todas especificações do layout da página.
 
-_Obs.: A página do detalhe da receita precisa buscar no arquivo `data.js` apenas a receita desejada pelo usuário, por isso você usará de parâmetros na rota dessa página, por exemplo: `http://localhost:3000/recipes/3`, nesse caso estaríamos acessando os detalhes da receita com índice 3 no array de receitas (recipes[3])._
+## Dados do projeto
 
-Para obter um ID da receita através da URL no Node.js você vai usar conforme o exemplo:
+No desafio passado você criou um arquivo de dados chamado `data.js` para servir de dados da sua aplicação.
 
-```js
-server.get("/recipes/:index", function (req, res) {
-  const recipes = [...]; // Array de receitas carregadas do data.js
-  const recipeIndex = req.params.index;
+Utilize agora, um arquivo que levará o nome `data.json` seguindo o que você aprendeu nesse módulo, porém, mantenha a estrutura de dados que você tinha no seu arquivo: `data.js`.
 
-  console.log(receipts[recipeIndex]);
-})
+Exemplo:
+
+```json
+{
+  "recipes": []
+}
 ```
 
-## Ação de mostrar/esconder
+Nesse `array` de `recipes` irão as receitas cadastradas pelo seu sistema.
 
-Dentro da página do detalhe da receita, em cada seção "Ingredientes", "Modo de preparo" e "Informações adicionais" há um botão `Mostrar` ou `Esconder` que ao ser clicado deve mostrar ou esconder o texto abaixo do título baseado em seu estado de visibilidade.
+A fim de testar as funcionalidades da sua área administrativa, cadastre, pela área administrativa, os dados que você tinha anteriormente no seu `data.js`
+
+## Adicionar Campo Dinâmico
+
+Os campos de "Ingredientes" e "Modo de preparo", serão campos dinâmicos, onde você irá adicionar quantos campos forem necessários, usando JavaScript para isso.
+
+### Vídeo Exemplo
+
+<p align="center">
+  <img alt="Gif Campo Dinâmico" src="https://i.imgur.com/EOYWaJW.gif"/>
+</p>
+
+### Código de exemplo
+
+```html
+<div id="ingredients">
+  <div class="ingredient">
+    <input type="text" name="ingredients[]" value="" placeholder="Ingredient" />
+  </div>
+</div>
+<button type="button" class="add-ingredient">Add Ingredient</button>
+```
+
+Veja que o nome do nosso input contém `[]` no fim, isso significa que ele será um vetor, ou seja, quando o usuário enviar o formulário teremos algo assim:
+
+```js
+{
+  "ingredients": [
+    "Batata",
+    "Queijo",
+    "Bacon"
+  ]
+}
+```
+
+#### Exemplo de JavaScript
+
+```js
+function addIngredient() {
+  const ingredients = document.querySelector("#ingredients");
+  const fieldContainer = document.querySelectorAll(".ingredient");
+
+  // Realiza um clone do último ingrediente adicionado
+  const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+
+  // Não adiciona um novo input se o último tem um valor vazio
+  if (newField.children[0].value == "") return false;
+
+  // Deixa o valor do input vazio
+  newField.children[0].value = "";
+  ingredients.appendChild(newField);
+}
+
+document
+  .querySelector(".add-ingredient")
+  .addEventListener("click", addIngredient);
+```
+
+## Apresentação no site
+
+Altere as rotas desenvolvidas no desafio anterior para exibir as receitas do novo arquivo `data.json` para o nosso site do Foodfy, no fim do desafio você deve ter então tanto a área administrativa do projeto quando o website consumindo os mesmos dados :smile:
