@@ -271,3 +271,58 @@ html {
   padding-left: 15%;
   box-sizing: border-box;
 }
+
+.admin-main {
+  width: 70%;
+  margin: 50px auto 0 15%;
+}
+
+.admin-main > .title {
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--color-font);
+  line-height: 28px;
+}
+
+.admin-main > .cards {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 40px;
+}
+
+.cards > .card {
+  height: 80px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 172px 1fr;
+  column-gap: 20px;
+}
+
+.card .image {
+  height: 80px;
+  width: 172px;
+  border-radius: 8px;
+}
+
+.card .recipe {
+  color: var(--color-font);
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 5px;
+}
+
+.card .author {
+  font-size: 14px;
+  color: var(--color-font-light);
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+
+.card .link {
+  font-size: 14px;
+  color: #6558c3;
+  line-height: 16px;
+  font-weight: bold;
+}
