@@ -1,0 +1,23 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+  <form class="form" action="">
+    <div class="head">
+      <h1 class="title -form">Criando receita</h1>
+      <button class="button" type="submit">Salvar receita</button>
+    </div>
+    <div class="inputs">
+      <label class="label" for="img">Imagem da receita</label>
+      <input class="input" id="img" type="text">
+      <label class="label" for="ing">Ingredientes</label>
+      <input class="input" id="ing" type="text">
+      <a class="link" href="">Adicionar novo ingrediente</a>
+      <label class="label" for="prep">Modo de preparo</label>
+      <input class="input" id="prep" type="text">
+      <a class="link" href="">Adicionar novo passo</a>
+      <label class="label" for="add">Informações adicionais</label>
+      <textarea class="input -big" id="add" type="text"></textarea>
+    </div>
+  </form>
+
+{% endblock %}
