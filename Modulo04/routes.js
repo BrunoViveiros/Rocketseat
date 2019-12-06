@@ -23,7 +23,7 @@ routes.get("/recipe/:index", (req, res) => {
 routes.get("/admin", (req, res) => res.redirect("/admin/recipes")); // Mostrar a lista de receitas
 routes.get("/admin/recipes", (req, res) => res.render("admin/index")); // Mostrar a lista de receitas
 routes.get("/admin/recipes/create", (req, res) => res.render("admin/create")); // Mostrar formulário de nova receita
-// routes.get("/admin/recipes/:id", recipes.show); // Exibir detalhes de uma receita
+routes.get("/admin/recipes/:id", admin.show); // Exibir detalhes de uma receita
 // routes.get("/admin/recipes/:id/edit", recipes.edit); // Mostrar formulário de edição de receita
 
 routes.post("/admin/recipes", admin.post); // Cadastrar nova receita
