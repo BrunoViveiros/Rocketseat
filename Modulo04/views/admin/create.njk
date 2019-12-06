@@ -18,15 +18,19 @@
 
       <label class="label" for="ingredients">Ingredientes</label>
       <input name="ingredients" class="input" type="text" id="ingredients">
-      <a class="link" href="">Adicionar novo ingrediente</a>
+      <a class="link" data-ref="ingredients">Adicionar novo ingrediente</a>
 
       <label class="label" for="preparation">Modo de preparo</label>
       <input name="preparation" class="input" type="text" id="preparation">
-      <a class="link" href="">Adicionar novo passo</a>
+      <a class="link" data-ref="preparation">Adicionar novo passo</a>
 
       <label class="label" for="information">Informações adicionais</label>
       <textarea name="information" class="input -big" id="information"></textarea>
     </div>
   </form>
 
+{% endblock %}
+
+{% block script %}
+  <script src="/admin.js"></script>
 {% endblock %}
