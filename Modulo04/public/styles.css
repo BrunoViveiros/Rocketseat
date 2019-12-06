@@ -29,7 +29,6 @@ body,
 html {
   display: flex;
   flex-direction: column;
-  height: 100%;
   font-family: "Roboto", sans-serif;
 }
 
@@ -335,7 +334,7 @@ html {
 .form {
   max-width: 950px;
   width: 950px;
-  margin: 55px auto 0;
+  margin: 55px auto 55px;
 }
 
 .form .head {
@@ -395,7 +394,6 @@ html {
 
 .inputs .input.-big {
   height: 260px;
-  margin-bottom: 50px;
 }
 
 .inputs .link {
