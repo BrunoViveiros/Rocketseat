@@ -7,16 +7,19 @@
       <button class="button" type="submit">Salvar receita</button>
     </div>
     <div class="inputs">
-      <label class="label" for="img">Imagem da receita</label>
-      <input class="input" id="img" type="text">
-      <label class="label" for="ing">Ingredientes</label>
-      <input class="input" id="ing" type="text">
+      <label class="label" for="recipe_url">Imagem da receita</label>
+      <input name="recipe_url" class="input" type="url" id="recipe_url">
+
+      <label class="label" for="ingredients">Ingredientes</label>
+      <input name="ingredients" class="input" type="text" id="ingredients">
       <a class="link" href="">Adicionar novo ingrediente</a>
-      <label class="label" for="prep">Modo de preparo</label>
-      <input class="input" id="prep" type="text">
+
+      <label class="label" for="steps">Modo de preparo</label>
+      <input name="steps" class="input" type="text" id="steps">
       <a class="link" href="">Adicionar novo passo</a>
-      <label class="label" for="add">Informações adicionais</label>
-      <textarea class="input -big" id="add" type="text"></textarea>
+
+      <label class="label" for="extra">Informações adicionais</label>
+      <textarea name="extra" class="input -big" id="extra"></textarea>
     </div>
   </form>
 
