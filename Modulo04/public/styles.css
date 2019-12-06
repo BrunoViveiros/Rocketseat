@@ -395,6 +395,7 @@ html {
 
 .inputs .input.-big {
   height: 260px;
+  margin-bottom: 50px;
 }
 
 .inputs .link {
