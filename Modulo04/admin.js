@@ -52,3 +52,15 @@ exports.post = (req, res) => {
     return res.redirect("/admin/recipes");
   });
 };
+
+exports.edit = (req, res) => {
+  const { id } = req.params;
+
+  const foundRecipe = data.recipes.find(recipe => {
+    return id == recipe.id;
+  });
+
+  if (!foundRecipe) return res.send("Recipe not found!");
+
+  return res.render("admin/edit", { recipe: foundRecipe });
+};

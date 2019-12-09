@@ -3,30 +3,34 @@
 {% block content %}
   <form class="form" method="POST" action="/admin/recipes">
     <div class="head">
-      <h1 class="title -form">Criando receita</h1>
+      <h1 class="title -form">Editando receita</h1>
       <button class="button" type="submit">Salvar receita</button>
     </div>
 
     <div class="inputs">
       <label class="label" for="image">Imagem da receita</label>
-      <input name="image" class="input" type="url" id="image">
+      <input name="image" class="input" type="url" id="image" value="{{ recipe.image }}">
 
       <label class="label" for="title">Nome da receita</label>
-      <input name="title" class="input" type="text" id="title">
+      <input name="title" class="input" type="text" id="title" value="{{ recipe.title }}">
 
       <label class="label" for="author">Autor da receita</label>
-      <input name="author" class="input" type="text" id="author">
+      <input name="author" class="input" type="text" id="author" value="{{ recipe.author }}">
 
       <label class="label" for="ingredients">Ingredientes</label>
-      <input name="ingredients" class="input" type="text" id="ingredients">
+      {% for item in recipe.ingredients %}
+        <input name="ingredients" class="input -alt" type="text" value="{{ item }}">
+      {% endfor %}
       <a class="link" data-ref="ingredients">Adicionar novo ingrediente</a>
 
       <label class="label" for="preparation">Modo de preparo</label>
-      <input name="preparation" class="input" type="text" id="preparation">
+      {% for item in recipe.preparation %}
+        <input name="preparation" class="input -alt" type="text" value="{{ item }}">
+      {% endfor %}
       <a class="link" data-ref="preparation">Adicionar novo passo</a>
 
       <label class="label" for="information">Informações adicionais</label>
-      <textarea name="information" class="input -big" id="information"></textarea>
+      <textarea name="information" class="input -big" id="information">{{ recipe.information }}</textarea>
     </div>
 
   </form>
