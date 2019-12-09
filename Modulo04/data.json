@@ -3,10 +3,16 @@
     {
       "id": 2,
       "image": "http://image.com",
-      "title": "Receita 2",
+      "title": "Receita 22",
       "author": "Eu",
-      "ingredients": ["asfas", "eqweqw"],
-      "preparation": ["dasd", "afasras"],
+      "ingredients": [
+        "asfas",
+        "eqweqw"
+      ],
+      "preparation": [
+        "dasd",
+        "afasras"
+      ],
       "information": "dasdasdas"
     },
     {

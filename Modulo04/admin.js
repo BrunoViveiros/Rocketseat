@@ -88,8 +88,13 @@ exports.put = (req, res) => {
     information
   } = req.body;
 
-  const foundRecipe = data.recipes.find(recipe => {
-    return id == recipe.id;
+  let index = 0;
+
+  const foundRecipe = data.recipes.find((recipe, foundIndex) => {
+    if (id == recipe.id) {
+      index = foundIndex;
+      return true;
+    }
   });
 
   if (!foundRecipe) return res.send("Recipe not found!");
@@ -104,7 +109,7 @@ exports.put = (req, res) => {
 
   const recipe = {
     ...foundRecipe,
-    id,
+    id: Number(req.body.id),
     image,
     title,
     author,
@@ -113,7 +118,7 @@ exports.put = (req, res) => {
     information
   };
 
-  data.recipes[id - 1] = recipe;
+  data.recipes[index] = recipe;
 
   fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
     if (err) return res.send("Write error!");
