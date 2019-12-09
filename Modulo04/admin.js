@@ -46,7 +46,12 @@ exports.post = (req, res) => {
     preparation = Array(preparation);
   }
 
-  const id = Number(data.recipes.length + 1);
+  const lastRecipe = data.members[data.members.length - 1];
+  let id = 1;
+
+  if (lastRecipe) {
+    id = Number(lastRecipe.id + 1);
+  }
 
   data.recipes.push({
     id,
