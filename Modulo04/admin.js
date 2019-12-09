@@ -64,3 +64,48 @@ exports.edit = (req, res) => {
 
   return res.render("admin/edit", { recipe: foundRecipe });
 };
+
+exports.put = (req, res) => {
+  let {
+    id,
+    image,
+    title,
+    author,
+    ingredients,
+    preparation,
+    information
+  } = req.body;
+
+  const foundRecipe = data.recipes.find(recipe => {
+    return id == recipe.id;
+  });
+
+  if (!foundRecipe) return res.send("Recipe not found!");
+
+  if (typeof ingredients === "string") {
+    ingredients = Array(ingredients);
+  }
+
+  if (typeof preparation === "string") {
+    preparation = Array(preparation);
+  }
+
+  const recipe = {
+    ...foundRecipe,
+    id,
+    image,
+    title,
+    author,
+    ingredients,
+    preparation,
+    information
+  };
+
+  data.recipes[id - 1] = recipe;
+
+  fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
+    if (err) return res.send("Write error!");
+
+    return res.redirect(`/admin/recipes/${id}`);
+  });
+};

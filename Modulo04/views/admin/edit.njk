@@ -1,7 +1,7 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <form class="form" method="POST" action="/admin/recipes">
+  <form class="form" method="POST" action="/admin/recipes?_method=PUT">
     <div class="head">
       <h1 class="title -form">Editando receita</h1>
       <div>
@@ -11,6 +11,8 @@
     </div>
 
     <div class="inputs">
+      <input type="hidden" name="id" value="{{ recipe.id }}">
+
       <label class="label" for="image">Imagem da receita</label>
       <input name="image" class="input" type="url" id="image" value="{{ recipe.image }}">
 

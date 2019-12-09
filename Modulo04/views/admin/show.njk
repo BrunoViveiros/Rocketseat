@@ -4,9 +4,10 @@
   <main class="recipe-page main -edit">
     <div class="header-edit">
       <h1 class="title">
-        Receita:{{recipe.title}}
+        Receita:
+        {{recipe.title}}
       </h1>
-      <button class="button">Editar receita</button>
+      <a href="/admin/recipes/{{ recipe.id }}/edit" class="button">Editar receita</a>
     </div>
     <img class="image" src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
     <h1 class="title">{{recipe.title}}</h1>
