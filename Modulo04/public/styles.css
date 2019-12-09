@@ -358,9 +358,13 @@ html {
   padding: 9px 20px;
   background-color: var(--color-primary);
   border-radius: 4px;
-  width: 140px;
-  height: 37px;
   color: #ffffff;
+  box-sizing: border-box;
+}
+
+.form .button.-alt {
+  background-color: #dc4747;
+  margin-right: 30px;
 }
 
 .inputs {
