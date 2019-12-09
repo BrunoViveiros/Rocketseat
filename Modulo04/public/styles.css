@@ -271,19 +271,31 @@ html {
   display: flex;
   align-items: center;
   padding-left: 15%;
-  box-sizing: border-box;
 }
 
 .admin-main {
-  width: 70%;
+  min-width: 940px;
   margin: 50px auto 0 15%;
 }
 
 .admin-main .title {
+  display: inline-block;
   font-weight: bold;
   font-size: 24px;
   color: var(--color-font);
   line-height: 28px;
+}
+
+.admin-main .button {
+  float: right;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 9px 20px;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .admin-main .cards {
