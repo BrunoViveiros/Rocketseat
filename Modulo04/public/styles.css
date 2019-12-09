@@ -332,16 +332,10 @@ html {
 
 /*=== FORM ===*/
 .form {
+  position: relative;
   max-width: 950px;
   width: 950px;
   margin: 55px auto 55px;
-}
-
-.form .head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
 }
 
 .form .title {
@@ -352,6 +346,8 @@ html {
 }
 
 .form .button {
+  position: absolute;
+  right: 0;
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
@@ -360,9 +356,12 @@ html {
   border-radius: 4px;
   color: #ffffff;
   box-sizing: border-box;
+  transform: translateY(-100%);
+  cursor: pointer;
 }
 
 .form .button.-alt {
+  right: 150px;
   background-color: #dc4747;
   margin-right: 30px;
 }
@@ -401,12 +400,15 @@ html {
 }
 
 .inputs .link {
+  width: fit-content;
   color: var(--color-primary);
   font-size: 16px;
   line-height: 19px;
   font-weight: bold;
   margin-top: 15px;
   text-anchor: start;
+  cursor: pointer;
+  display: block;
 }
 
 /*=== RECIPE ===*/

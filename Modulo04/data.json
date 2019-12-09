@@ -1,21 +1,18 @@
 {
   "recipes": [
     {
-      "id": 1,
-      "image": "http://image.com",
-      "title": "Receita 2",
-      "author": "Eu",
-      "ingredients": ["asfas"],
-      "preparation": ["dasd"],
-      "information": "dasdasdas"
-    },
-    {
       "id": 2,
       "image": "http://image.com",
       "title": "Receita 2",
       "author": "Eu",
-      "ingredients": ["asfas", "eqweqw"],
-      "preparation": ["dasd", "afasras"],
+      "ingredients": [
+        "asfas",
+        "eqweqw"
+      ],
+      "preparation": [
+        "dasd",
+        "afasras"
+      ],
       "information": "dasdasdas"
     },
     {

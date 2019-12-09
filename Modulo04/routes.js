@@ -28,6 +28,6 @@ routes.get("/admin/recipes/:id/edit", admin.edit); // Mostrar formulário de edi
 
 routes.post("/admin/recipes", admin.post); // Cadastrar nova receita
 routes.put("/admin/recipes", admin.put); // Editar uma receita
-// routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
+routes.delete("/admin/recipes", admin.delete); // Deletar uma receita
 
 module.exports = routes;
