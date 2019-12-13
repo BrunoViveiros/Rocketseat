@@ -7,7 +7,7 @@ module.exports = {
     });
   },
   redirectIndex(req, res) {
-    return res.redirect("recipes/recipes");
+    return res.redirect("admin/recipes");
   },
   create(req, res) {
     return res.render("recipes/create");
