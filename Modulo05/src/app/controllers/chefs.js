@@ -1,9 +1,9 @@
 module.exports = {
   index(req, res) {
-    return res.render("admin/index", { recipes: data.recipes });
+    return res.render("admin/index");
   },
   redirectIndex(req, res) {
-    return res.redirect("/admin/recipes");
+    return res.redirect("/admin/chefs");
   },
   create(req, res) {
     return res.render("admin/create");

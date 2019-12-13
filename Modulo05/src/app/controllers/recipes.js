@@ -1,12 +1,12 @@
 module.exports = {
   index(req, res) {
-    return res.render("admin/index", { recipes: data.recipes });
+    return res.render("recipes/index");
   },
   redirectIndex(req, res) {
-    return res.redirect("/admin/recipes");
+    return res.redirect("recipes/recipes");
   },
   create(req, res) {
-    return res.render("admin/create");
+    return res.render("recipes/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -14,15 +14,6 @@ module.exports = {
     for (key of keys) {
       if (req.body[key] == "") return res.send("Please, fill all fields");
     }
-
-    let {
-      image,
-      title,
-      author,
-      ingredients,
-      preparation,
-      information
-    } = req.body;
 
     return;
   },
