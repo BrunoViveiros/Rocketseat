@@ -24,7 +24,11 @@ module.exports = {
     });
   },
   show(req, res) {
-    return;
+    Recipe.find(req.params.id, recipe => {
+      if (!recipe) return res.send("Recipe not found!");
+
+      return res.render("recipes/show", { recipe });
+    });
   },
   edit(req, res) {
     return;
