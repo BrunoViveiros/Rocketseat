@@ -1,6 +1,10 @@
+const Recipe = require("../models/Recipe");
+
 module.exports = {
   index(req, res) {
-    return res.render("recipes/index");
+    Recipe.all(function(recipes) {
+      return res.render("recipes/index", { recipes });
+    });
   },
   redirectIndex(req, res) {
     return res.redirect("recipes/recipes");
@@ -15,7 +19,9 @@ module.exports = {
       if (req.body[key] == "") return res.send("Please, fill all fields");
     }
 
-    return;
+    Recipe.create(req.body, function(recipe) {
+      return res.redirect(`/admin/recipes/${recipe.id}`);
+    });
   },
   show(req, res) {
     return;
