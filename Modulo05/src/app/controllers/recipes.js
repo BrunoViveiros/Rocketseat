@@ -7,7 +7,7 @@ module.exports = {
     });
   },
   redirectIndex(req, res) {
-    return res.redirect("admin/recipes");
+    return res.redirect("/admin/recipes");
   },
   create(req, res) {
     return res.render("recipes/create");
@@ -31,10 +31,22 @@ module.exports = {
     });
   },
   edit(req, res) {
-    return;
+    Recipe.find(req.params.id, recipe => {
+      if (!recipe) return res.send("Recipe not found!");
+
+      return res.render("recipes/edit", { recipe });
+    });
   },
   put(req, res) {
-    return;
+    const keys = Object.keys(req.body);
+
+    for (key of keys) {
+      if (req.body[key] == "") return res.send("Please, fill all fields");
+    }
+
+    Recipe.update(req.body, function() {
+      return res.redirect(`/admin/recipes/${req.body.id}`);
+    });
   },
   delete(req, res) {
     return;

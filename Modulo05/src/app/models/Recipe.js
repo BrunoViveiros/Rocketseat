@@ -5,7 +5,7 @@ const db = require("../../config/db");
 module.exports = {
   all(callback) {
     db.query(`SELECT * FROM recipes`, function(err, results) {
-      if (err) return res.send("Database Error!");
+      if (err) throw `Database error! ${err}`;
 
       callback(results.rows);
     });
@@ -33,7 +33,7 @@ module.exports = {
     ];
 
     db.query(query, values, function(err, results) {
-      if (err) return res.send("Database Error!");
+      if (err) throw `Database error! ${err}`;
 
       callback(results.rows[0]);
     });
@@ -45,10 +45,40 @@ module.exports = {
        WHERE id = $1`,
       [id],
       function(err, results) {
-        if (err) return res.send("Database Error!");
+        if (err) throw `Database error! ${err}`;
 
-        callback(results.rows[0]);
+        let recipe = results.rows[0];
+        recipe.ingredients = String(recipe.ingredients).split(",");
+        recipe.preparation = String(recipe.preparation).split(",");
+
+        callback(recipe);
       }
     );
+  },
+  update(data, callback) {
+    const query = `
+      UPDATE recipes SET
+        image=($1),
+        title=($2),
+        ingredients=($3),
+        preparation=($4),
+        information=($5) 
+      WHERE id = $6
+    `;
+
+    const values = [
+      data.image,
+      data.title,
+      Array(data.ingredients),
+      Array(data.preparation),
+      data.information,
+      data.id
+    ];
+
+    db.query(query, values, function(err, results) {
+      if (err) throw `Database error! ${err}`;
+
+      callback();
+    });
   }
 };
