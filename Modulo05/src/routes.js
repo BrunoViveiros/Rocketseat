@@ -1,21 +1,23 @@
 const express = require("express");
-const admin = require("./app/controllers/admin");
+const admin = require("./app/controllers/recipes");
 
-const recipes = require("./data");
+const txtData = require("./data");
 
 const routes = express.Router();
 
 //MAIN
-routes.get("/", (req, res) => res.render("main/home", { recipes }));
+routes.get("/", (req, res) => res.render("main/home", { recipes: txtData }));
 
 routes.get("/about", (req, res) => res.render("main/about"));
 
-routes.get("/recipes", (req, res) => res.render("main/recipes", { recipes }));
+routes.get("/recipes", (req, res) =>
+  res.render("main/recipes", { recipes: txtData })
+);
 
 routes.get("/recipe/:index", (req, res) => {
   const recipeIndex = req.params.index;
 
-  return res.render("main/recipe", { recipe: recipes[recipeIndex] });
+  return res.render("main/recipe", { recipe: txtData[recipeIndex] });
 });
 
 //ADMIN
