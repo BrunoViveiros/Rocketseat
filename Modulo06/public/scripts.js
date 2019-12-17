@@ -1,5 +1,3 @@
-
-
 const Mask = {
   apply(input, func) {
     setTimeout(function() {
