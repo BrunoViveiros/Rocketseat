@@ -37,11 +37,11 @@ routes.delete("/admin/recipes", adminRecipes.delete); // Deletar uma receita
 routes.get("/admin/chefs", adminChefs.index); // Mostrar a lista de receitas
 routes.get("/admin/chefs/create", adminChefs.create); // Mostrar formulário de nova receita
 routes.get("/admin/chefs/:id", adminChefs.show); // Exibir detalhes de uma receita
-// routes.get("/admin/chefs/:id/edit", admin.edit); // Mostrar formulário de edição de receita
+routes.get("/admin/chefs/:id/edit", adminChefs.edit); // Mostrar formulário de edição de receita
 
-// routes.post("/admin/chefs", admin.post); // Cadastrar nova receita
-// routes.put("/admin/chefs", admin.put); // Editar uma receita
-// routes.delete("/admin/chefs", admin.delete); // Deletar uma receita
+routes.post("/admin/chefs", adminChefs.post); // Cadastrar nova receita
+routes.put("/admin/chefs", adminChefs.put); // Editar uma receita
+routes.delete("/admin/chefs", adminChefs.delete); // Deletar uma receita
 
 
 module.exports = routes;

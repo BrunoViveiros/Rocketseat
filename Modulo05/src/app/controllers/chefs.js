@@ -2,9 +2,7 @@ const Chef = require("../models/Chef");
 
 module.exports = {
   index(req, res) {
-    Chef.all(function(chefs) {
-      return res.render("chefs/index", { chefs });
-    });
+    Chef.all(chefs => res.render("chefs/index", { chefs }));
   },
   create(req, res) {
     return res.render("chefs/create");
@@ -16,9 +14,7 @@ module.exports = {
       if (req.body[key] == "") return res.send("Please, fill all fields");
     }
 
-    Chef.create(req.body, function(chef) {
-      return res.redirect(`/admin/chefs/${chef.id}`);
-    });
+    Chef.create(req.body, chef => res.redirect(`/admin/chefs/${chef.id}`));
   },
   show(req, res) {
     Chef.find(req.params.id, chef => {
@@ -41,13 +37,9 @@ module.exports = {
       if (req.body[key] == "") return res.send("Please, fill all fields");
     }
 
-    Chef.update(req.body, function() {
-      return res.redirect(`/admin/chefs/${req.body.id}`);
-    });
+    Chef.update(req.body, () => res.redirect(`/admin/chefs/${req.body.id}`));
   },
   delete(req, res) {
-    Chef.delete(req.body.id, function() {
-      return res.redirect(`/admin/chefs`);
-    });
+    Chef.delete(req.body.id, () => res.redirect(`/admin/chefs`));
   }
 };
