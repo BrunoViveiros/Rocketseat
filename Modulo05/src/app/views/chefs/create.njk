@@ -1,0 +1,38 @@
+{% extends "recipes/layout.njk" %}
+
+{% block content %}
+  <form class="form" method="POST" action="/admin/recipes">
+    <div class="head">
+      <h1 class="title -form">Criando receita</h1>
+      <button class="button" type="submit">Salvar receita</button>
+    </div>
+
+    <div class="inputs">
+      <label class="label" for="image">Imagem da receita</label>
+      <input name="image" class="input" type="url" id="image">
+
+      <label class="label" for="title">Nome da receita</label>
+      <input name="title" class="input" type="text" id="title">
+
+      <label class="label" for="author">Autor da receita</label>
+      <input name="author" class="input" type="text" id="author">
+
+      <label class="label" for="ingredients">Ingredientes</label>
+      <input name="ingredients" class="input" type="text" id="ingredients">
+      <a class="link" data-ref="ingredients">Adicionar novo ingrediente</a>
+
+      <label class="label" for="preparation">Modo de preparo</label>
+      <input name="preparation" class="input" type="text" id="preparation">
+      <a class="link" data-ref="preparation">Adicionar novo passo</a>
+
+      <label class="label" for="information">Informações adicionais</label>
+      <textarea name="information" class="input -big" id="information"></textarea>
+    </div>
+
+  </form>
+
+{% endblock %}
+
+{% block script %}
+  <script src="/admin.js"></script>
+{% endblock %}

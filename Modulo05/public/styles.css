@@ -453,3 +453,55 @@ html {
   padding: 9px 20px;
   box-sizing: border-box;
 }
+
+/* Admin */
+
+.admin-header .link {
+  color: #999;
+  margin-left: 50px;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.admin-header .link.-current {
+  color: #fff;
+}
+
+.chef-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.chef-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  max-width: 220px;
+  align-items: center;
+}
+
+.chef-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.chef-card p {
+  color: var(--color-font);
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 8px;
+}
+
+.chef-card a {
+  font-weight: bold;
+  color: #6558c3;
+  font-size: 14px;
+  line-height: 16px;
+}

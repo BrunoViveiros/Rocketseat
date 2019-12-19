@@ -1,5 +1,6 @@
 const express = require("express");
-const admin = require("./app/controllers/recipes");
+const adminRecipes = require("./app/controllers/recipes");
+const adminChefs = require("./app/controllers/chefs");
 
 const txtData = require("./data");
 
@@ -20,16 +21,27 @@ routes.get("/recipe/:index", (req, res) => {
   return res.render("main/recipe", { recipe: txtData[recipeIndex] });
 });
 
-//ADMIN
+routes.get("/admin", adminRecipes.redirectIndex); // Mostrar a lista de receitas
 
-routes.get("/admin", admin.redirectIndex); // Mostrar a lista de receitas
-routes.get("/admin/recipes", admin.index); // Mostrar a lista de receitas
-routes.get("/admin/recipes/create", admin.create); // Mostrar formulário de nova receita
-routes.get("/admin/recipes/:id", admin.show); // Exibir detalhes de uma receita
-routes.get("/admin/recipes/:id/edit", admin.edit); // Mostrar formulário de edição de receita
+//ADMIN recipes
+routes.get("/admin/recipes", adminRecipes.index); // Mostrar a lista de receitas
+routes.get("/admin/recipes/create", adminRecipes.create); // Mostrar formulário de nova receita
+routes.get("/admin/recipes/:id", adminRecipes.show); // Exibir detalhes de uma receita
+routes.get("/admin/recipes/:id/edit", adminRecipes.edit); // Mostrar formulário de edição de receita
 
-routes.post("/admin/recipes", admin.post); // Cadastrar nova receita
-routes.put("/admin/recipes", admin.put); // Editar uma receita
-routes.delete("/admin/recipes", admin.delete); // Deletar uma receita
+routes.post("/admin/recipes", adminRecipes.post); // Cadastrar nova receita
+routes.put("/admin/recipes", adminRecipes.put); // Editar uma receita
+routes.delete("/admin/recipes", adminRecipes.delete); // Deletar uma receita
+
+//ADMIN chefs
+routes.get("/admin/chefs", adminChefs.index); // Mostrar a lista de receitas
+// routes.get("/admin/chefs/create", admin.create); // Mostrar formulário de nova receita
+// routes.get("/admin/chefs/:id", admin.show); // Exibir detalhes de uma receita
+// routes.get("/admin/chefs/:id/edit", admin.edit); // Mostrar formulário de edição de receita
+
+// routes.post("/admin/chefs", admin.post); // Cadastrar nova receita
+// routes.put("/admin/chefs", admin.put); // Editar uma receita
+// routes.delete("/admin/chefs", admin.delete); // Deletar uma receita
+
 
 module.exports = routes;
