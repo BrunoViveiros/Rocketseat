@@ -6,9 +6,6 @@ module.exports = {
       return res.render("chefs/index", { chefs });
     });
   },
-  redirectIndex(req, res) {
-    return res.redirect("/admin/chefs");
-  },
   create(req, res) {
     return res.render("chefs/create");
   },

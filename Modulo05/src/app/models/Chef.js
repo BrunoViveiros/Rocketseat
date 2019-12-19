@@ -47,11 +47,7 @@ module.exports = {
       function(err, results) {
         if (err) throw `Database error! ${err}`;
 
-        let chef = results.rows[0];
-        chef.ingredients = String(chef.ingredients).split(",");
-        chef.preparation = String(chef.preparation).split(",");
-
-        callback(chef);
+        callback(results.rows[0]);
       }
     );
   },
