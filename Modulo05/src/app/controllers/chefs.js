@@ -1,4 +1,5 @@
 const Chef = require("../models/Chef");
+const Recipe = require("../models/Recipe");
 
 module.exports = {
   index(req, res) {
@@ -19,8 +20,12 @@ module.exports = {
   show(req, res) {
     Chef.find(req.params.id, chef => {
       if (!chef) return res.send("Chef not found!");
-
-      return res.render("chefs/show", { chef });
+      
+      
+      Recipe.findByChef(req.params.id, recipes => {
+        console.log(recipes)
+        return res.render("chefs/show", { chef, recipes });
+      })
     });
   },
   edit(req, res) {

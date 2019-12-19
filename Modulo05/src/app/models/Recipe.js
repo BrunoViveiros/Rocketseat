@@ -55,6 +55,20 @@ module.exports = {
       }
     );
   },
+  findByChef(id, callback) {
+    db.query(
+      `SELECT * 
+       FROM recipes 
+       WHERE chef_id = $1
+       ORDER BY title ASC`,
+      [id],
+      function(err, results) {
+        if (err) throw `Database error! ${err}`;
+
+        callback(results.rows);
+      }
+    );
+  },
   update(data, callback) {
     const query = `
       UPDATE recipes SET

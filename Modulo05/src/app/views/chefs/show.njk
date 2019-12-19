@@ -12,7 +12,7 @@
     <div class="chef-info">
       <img src="{{chef.avatar_url}}" alt="Foto de {{chef.name}}">
       <h3>{{chef.name}}</h3>
-      <p>{{ 1+1 }}
+      <p>{{ chef.total_recipes }}
         receitas</p>
     </div>
 
@@ -20,14 +20,16 @@
 
     <section class="cards">
 
+  {% for recipe in recipes %} 
         <div class="card">
-          <img class="image" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png" alt="Foto de Burguer">
+          <img class="image" src="{{recipe.image}}" alt="Foto de {{recipe.title}}">
           <div>
-            <p class="recipe">Burguer lala</p>
+            <p class="recipe">{{recipe.title}}</p>
             <p class="author">por {{chef.name}}</p>
-            <a href="/admin/recipes/{{ 1 }}" class="link">Visualizar</a>
+            <a href="/admin/recipes/{{recipe.id}}" class="link">Visualizar</a>
           </div>
         </div>
+  {% endfor %} 
 
 
     </section>
