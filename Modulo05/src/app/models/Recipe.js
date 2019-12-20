@@ -4,7 +4,11 @@ const db = require("../../config/db");
 
 module.exports = {
   all(callback) {
-    db.query(`SELECT * FROM recipes`, function(err, results) {
+    db.query(`
+      SELECT recipes.*, chefs.name AS chef_name
+      FROM recipes
+      LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+      `, function(err, results) {
       if (err) throw `Database error! ${err}`;
 
       callback(results.rows);
@@ -18,8 +22,9 @@ module.exports = {
         ingredients,
         preparation,
         information,
-        created_at	
-      ) VALUES ($1, $2, $3, $4, $5, $6)
+        created_at,
+        chef_id
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING id
   `;
 
@@ -29,7 +34,8 @@ module.exports = {
       Array(data.ingredients),
       Array(data.preparation),
       data.information,
-      date(Date.now()).iso
+      date(Date.now()).iso,
+      data.author
     ];
 
     db.query(query, values, function(err, results) {
@@ -76,8 +82,9 @@ module.exports = {
         title=($2),
         ingredients=($3),
         preparation=($4),
-        information=($5) 
-      WHERE id = $6
+        information=($5),
+        chef_id=($6)
+      WHERE id = $7
     `;
 
     const values = [
@@ -86,6 +93,7 @@ module.exports = {
       Array(data.ingredients),
       Array(data.preparation),
       data.information,
+      data.author,
       data.id
     ];
 
@@ -106,5 +114,12 @@ module.exports = {
         return callback();
       }
     );
+  },
+  chefsSelectOptions(callback) {
+    db.query(`SELECT name, id FROM chefs`, (err, results) => {
+      if (err) throw `Database error! ${err}`;
+
+      callback(results.rows);
+    })
   }
 };

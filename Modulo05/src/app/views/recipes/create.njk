@@ -15,7 +15,11 @@
       <input name="title" class="input" type="text" id="title">
 
       <label class="label" for="author">Autor da receita</label>
-      <input name="author" class="input" type="text" id="author">
+      <select class="input" name="author" id="author">
+        {% for chef in chefOptions %}
+          <option value="{{chef.id}}">{{chef.name}}</option>
+        {% endfor %}
+      </select>
 
       <label class="label" for="ingredients">Ingredientes</label>
       <input name="ingredients" class="input" type="text" id="ingredients">

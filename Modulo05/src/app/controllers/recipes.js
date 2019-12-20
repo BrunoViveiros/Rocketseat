@@ -10,7 +10,7 @@ module.exports = {
     return res.redirect("/admin/recipes");
   },
   create(req, res) {
-    return res.render("recipes/create");
+    Recipe.chefsSelectOptions(options => res.render("recipes/create", { chefOptions: options }));
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -34,7 +34,8 @@ module.exports = {
     Recipe.find(req.params.id, recipe => {
       if (!recipe) return res.send("Recipe not found!");
 
-      return res.render("recipes/edit", { recipe });
+      Recipe.chefsSelectOptions(options => res.render("recipes/edit", { chefOptions: options, recipe }));
+      
     });
   },
   put(req, res) {

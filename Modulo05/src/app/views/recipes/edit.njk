@@ -24,8 +24,12 @@
         <input name="title" class="input" type="text" id="title" value="{{ recipe.title }}">
 
         <label class="label" for="author">Autor da receita</label>
-        <input name="author" class="input" type="text" id="author" value="{{ recipe.author }}">
-
+        <select class="input" name="author" id="author">
+          {% for chef in chefOptions %}
+            <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected="selected" {% endif %} >{{chef.name}}</option>
+          {% endfor %}
+        </select>
+        
         <label class="label" for="ingredients">Ingredientes</label>
         {% for item in recipe.ingredients %}
           <input name="ingredients" class="input -alt" type="text" value="{{ item }}">
