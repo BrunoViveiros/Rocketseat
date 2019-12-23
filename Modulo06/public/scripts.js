@@ -36,7 +36,7 @@ const PhotosUpload = {
         const div = document.createElement("div");
         div.classList.add('photo')
 
-        div.onClick = () => alert('remover foto')
+        div.onclick = () => alert('remover foto')
 
         div.appendChild(image)
 
