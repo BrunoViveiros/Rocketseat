@@ -58,7 +58,7 @@ body {
   background-color: lightgray;
 }
 .button.delete:hover {
-  background-color: #DF3E3E;
+  background-color: #df3e3e;
 }
 .button.edit {
   background-color: var(--secondary-color);
@@ -229,7 +229,7 @@ form .item #photos-upload p {
   border-radius: 4px;
   box-shadow: 0 2px 2px -6px #333;
   background-color: var(--secondary-color);
-  color: #FFF;
+  color: #fff;
   width: 100%;
   text-align: center;
   text-transform: uppercase;
@@ -246,4 +246,43 @@ form .item #photos-input {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+
+form .item #photos-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin: 8px 0;
+}
+
+form .item #photos-preview img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+#photos-preview .photo {
+  position: relative;
+}
+
+#photos-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 500%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+#photos-preview .photo:hover i {
+  opacity: 1;
 }
