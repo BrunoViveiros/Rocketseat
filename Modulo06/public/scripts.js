@@ -108,12 +108,29 @@ const PhotosUpload = {
     const photoDiv = event.target.parentNode;
 
     if (photoDiv.id) {
-      const removedFiles = document.querySelector('input[name="removed_files"]');
+      const removedFiles = document.querySelector(
+        'input[name="removed_files"]'
+      );
       if (removedFiles) {
         removedFiles.value += `${photoDiv.id},`;
       }
     }
 
     photoDiv.remove();
+  }
+};
+
+const ImageGallery = {
+  highlight: document.querySelector(".gallery .highlight > img"),
+  previews: document.querySelectorAll(".gallery-preview img"),
+  setImage(e) {
+    const { target } = e;
+
+    ImageGallery.previews.forEach(preview =>
+      preview.classList.remove("active")
+    );
+    target.classList.add("active");
+
+    ImageGallery.highlight.src = target.src;
   }
 };
