@@ -2,6 +2,7 @@ const express = require("express");
 const routes = express.Router();
 
 const SessionController = require("../app/controllers/SessionController");
+const UserController = require("../app/controllers/UserController");
 
 
 
@@ -17,7 +18,7 @@ const SessionController = require("../app/controllers/SessionController");
 // routes.post("/password-reset", SessionController.reset);
 
 // // user register
-// routes.get("/register", UserController.registerForm);
+routes.get("/register", UserController.registerForm);
 // routes.post("/register", UserController.post);
 
 // routes.get("/", UserController.show);
