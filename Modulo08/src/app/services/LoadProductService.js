@@ -42,7 +42,7 @@ const LoadService = {
       console.error(error);
     }
   },
-  products() {
+  async products() {
     try {
       const products = await Product.findAll(this.filter);
       const productsPromise = products.map(format)
