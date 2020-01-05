@@ -64,19 +64,23 @@
           {% endif %}
         </div>
 
-        <div class="buy">
-          {% if product.status == 0 %}
-            <p class="unavaible">Indisponivel</p>
-          {% elseif product.quantity == 0 %}
-            <p class="unavaible">Fora de Estoque</p>
-          {% else %}
-            <form action="/users/orders" method="post">
-              <input type="hidden" name="id" value={{product.id}}>
-              <button class="button">Comprar</button>
-            </form>
-          {% endif %}
+        {% if (session.userId) and (product.user_id == session.userId) %}
+          <p class="unavaible">Você é o vendedor</p>
+        {% else %}
+          <div class="buy">
+            {% if product.status == 0 %}
+              <p class="unavaible">Indisponivel</p>
+            {% elseif product.quantity == 0 %}
+              <p class="unavaible">Fora de Estoque</p>
+            {% else %}
+              <form action="/users/orders" method="post">
+                <input type="hidden" name="id" value={{product.id}}>
+                <button class="button">Comprar</button>
+              </form>
+            {% endif %}
+          </div>
+        {% endif %}
 
-        </div>
       </div>
 
     </div>
