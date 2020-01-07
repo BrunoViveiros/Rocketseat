@@ -1,7 +1,5 @@
 const { formatPrice } = require("./utils");
 
-// carrinho fica guardado na sessão (req.session)
-
 const Cart = {
   init(oldCart) {
     if (oldCart) {
@@ -19,10 +17,8 @@ const Cart = {
     return this;
   },
   addOne(product) {
-    // ver se o produto já existe no carrinho
     let inCart = this.getCartItem(product.id);
 
-    // se não existe
     if (!inCart) {
       inCart = {
         product: {
@@ -37,15 +33,12 @@ const Cart = {
       this.items.push(inCart);
     }
 
-    // max quantity exceed
     if (inCart.quantity >= product.quantity) return this;
 
-    // update item
     inCart.quantity++;
     inCart.price = inCart.product.price * inCart.quantity;
     inCart.formattedPrice = formatPrice(inCart.price);
 
-    // update cart
     this.total.quantity++;
     this.total.price += inCart.product.price;
     this.total.formattedPrice = formatPrice(this.total.price);
@@ -53,17 +46,14 @@ const Cart = {
     return this;
   },
   removeOne(productId) {
-    // pegar o item do carrinho
     const inCart = this.getCartItem(productId);
 
     if (!inCart) return this;
 
-    // atualizar o item
     inCart.quantity--;
     inCart.price = inCart.product.price * inCart.quantity;
     inCart.formattedPrice = formatPrice(inCart.price);
 
-    // atualizar o carrinho
     this.total.quantity--;
     this.total.price -= inCart.product.price;
     this.total.formattedPrice = formatPrice(this.total.price);
@@ -75,6 +65,8 @@ const Cart = {
 
       return this;
     }
+
+    return this;
   },
   delete(productId) {
     const inCart = this.getCartItem(productId);
@@ -89,18 +81,11 @@ const Cart = {
     this.items = this.items.filter(
       item => inCart.product.id != item.product.id
     );
-
     return this;
   },
   getCartItem(productId) {
     return this.items.find(item => item.product.id == productId);
   }
-};
-
-const product = {
-  id: 1,
-  prices: 199,
-  quantity: 2
 };
 
 module.exports = Cart;

@@ -19,10 +19,10 @@ module.exports = {
     };
   },
   formatPrice(price) {
-    return (price = new Intl.NumberFormat("pt-BR", {
+    return new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL"
-    }).format(price / 100));
+    }).format(price / 100);
   },
   formatCpfCnpj(value) {
     value = value.replace(/\D/g, "");

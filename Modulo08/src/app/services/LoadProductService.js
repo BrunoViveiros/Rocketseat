@@ -45,7 +45,7 @@ const LoadService = {
   async products() {
     try {
       const products = await Product.findAll(this.filter);
-      const productsPromise = products.map(format)
+      const productsPromise = products.map(format);
 
       return Promise.all(productsPromise);
     } catch (error) {
