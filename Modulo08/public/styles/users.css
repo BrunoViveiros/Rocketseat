@@ -11,7 +11,7 @@
 .users-ads .items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-gap: 32px;
 
   padding: 16px 0;
 }
@@ -35,7 +35,7 @@
 
   border-radius: 8px;
   border: 1px solid #eee;
-  box-shadow: 2px 2px 4px -4px #000;
+  box-shadow: 2px 2px 4px -4px black;
 }
 
 .users-ads .info {
@@ -47,21 +47,22 @@
 .users-ads .info .title {
   font-size: 18px;
   font-weight: normal;
-  color: #4a4a4a;
+  color: rgb(74, 74, 74);
+
   margin-bottom: 4px;
 }
 
 .users-ads .info .price {
   font-size: 16px;
   font-weight: bold;
-  color: #4a4a4a;
+  color: rgb(74, 74, 74);
   margin-bottom: 4px;
 }
 
 .users-ads .info .published {
   font-size: 14px;
   font-weight: 300;
-  color: #4a4a4a;
+  color: rgb(74, 74, 74);
 }
 
 .users-ads .info .actions {
@@ -74,7 +75,6 @@
 
   color: var(--primary-color);
 }
-
 .users-ads .info .actions a:hover {
   font-weight: bold;
   text-decoration: underline;

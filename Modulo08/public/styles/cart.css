@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 100px 100px 30px;
 
-  gap: 16px;
+  grid-gap: 16px;
   margin-bottom: 16px;
+
   font-weight: 700;
   letter-spacing: 0.2px;
   text-transform: uppercase;
@@ -23,15 +24,15 @@
   display: grid;
   grid-template-columns: 1fr 100px 100px 30px;
   align-items: center;
-  gap: 16px;
+  grid-gap: 16px;
+
   padding: 16px 0;
+
   border-bottom: 1px solid #eee;
 }
-
 .cart .item:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.02);
 }
-
 .cart .item > a {
   display: flex;
   align-items: center;
@@ -79,7 +80,6 @@
 .cart .remove,
 .cart .delete {
   cursor: pointer;
-  background-color: transparent;
 }
 
 .cart .delete {
@@ -101,7 +101,7 @@
 
 .cart .total span {
   font-weight: bolder;
-  font-size: 24px;
+  font-size: 22px;
   color: #444;
 }
 
@@ -110,6 +110,7 @@
   justify-content: space-between;
 
   width: 100%;
+
   margin-top: 16px;
 }
 
@@ -118,11 +119,11 @@
 }
 
 .cart .button.order {
-  background: #00b140;
+  background: rgb(0, 177, 64);
 }
 
 .cart .button.order:hover {
-  background: #00dc40;
+  background: rgb(0, 220, 64);
 }
 
 /* Carrinho vazio */
@@ -139,10 +140,10 @@
   margin: 16px auto;
 }
 
-/* Menu */
+/* menu */
 header div.container {
   grid-template-columns: 220px auto 315px;
-  gap: 8px;
+  grid-gap: 8px;
 }
 
 li.cart a {
@@ -152,6 +153,7 @@ li.cart a {
 li.cart a span {
   background-color: red;
   border-radius: 50%;
+
   width: 20px;
   height: 20px;
 
@@ -160,7 +162,7 @@ li.cart a span {
 
   position: absolute;
   top: 12px;
-  right: 0;
+  right: 0px;
 
   display: flex;
   justify-content: center;
@@ -168,6 +170,6 @@ li.cart a span {
 }
 
 li.cart a:hover span {
-  background-color: #fff;
-  color: #000;
+  background-color: white;
+  color: black;
 }

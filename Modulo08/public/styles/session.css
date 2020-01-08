@@ -18,6 +18,6 @@ section.login.container .footer ul li a {
 }
 
 section.login.container .footer ul li a:hover {
-  color: #000;
+  color: black;
   font-weight: bold;
 }
