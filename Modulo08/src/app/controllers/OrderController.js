@@ -95,7 +95,7 @@ module.exports = {
 
       //Clean Cart
       delete req.session.cart;
-      Cart(init);
+      Cart.init();
 
       //notificar o usuario com alguma mensagem de succeso
       return res.render("orders/success");
