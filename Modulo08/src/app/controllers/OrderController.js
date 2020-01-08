@@ -29,7 +29,7 @@ module.exports = {
       const cart = Cart.init(req.session.cart);
 
       const buyer_id = req.session.userId;
-      
+
       const filteredItems = cart.items.filter(
         item => item.product.user_id != buyer_id
       );
@@ -70,6 +70,10 @@ module.exports = {
       });
 
       await Promise.all(createOrdersPromise);
+
+      //Clean Cart
+      delete req.session.cart;
+      Cart(init);
 
       //notificar o usuario com alguma mensagem de succeso
       return res.render("orders/success");
