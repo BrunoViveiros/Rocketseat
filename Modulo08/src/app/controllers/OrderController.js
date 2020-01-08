@@ -38,6 +38,13 @@ module.exports = {
 
     return res.render("orders/sales", { sales });
   },
+  async show(req, res) {
+    const order = await LoadOrderService.load("order", {
+      where: { id: req.params.id }
+    });
+
+    return res.render("orders/details", { order });
+  },
   async post(req, res) {
     try {
       // pegar os produtos do carrinho
@@ -97,5 +104,5 @@ module.exports = {
       console.error(error);
       return res.render("orders/error");
     }
-  },
+  }
 };
