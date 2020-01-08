@@ -73,7 +73,7 @@
             {% elseif product.quantity == 0 %}
               <p class="unavaible">Fora de Estoque</p>
             {% else %}
-              <form action="/cart/{{product.id}}//add-one" method="post">
+              <form action="/cart/{{product.id}}/add-one" method="post">
                 <button class="button">Adicionar ao Carrinho</button>
               </form>
             {% endif %}
