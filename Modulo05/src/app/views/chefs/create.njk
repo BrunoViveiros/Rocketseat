@@ -1,0 +1,26 @@
+{% extends "chefs/layout.njk" %}
+
+{% block content %}
+  <form class="form" method="POST" action="/admin/chefs">
+    <div class="head">
+      <h1 class="title -form">Cadastrando Chef</h1>
+      <button class="button" type="submit">Salvar Chef</button>
+    </div>
+
+    <div class="inputs">
+
+      <label class="label" for="name">Nome</label>
+      <input name="name" class="input" type="text" id="name">
+
+      <label class="label" for="avatar_url">Avatar</label>
+      <input name="avatar_url" class="input" type="text" id="avatar_url">
+
+  </div>
+
+  </form>
+
+{% endblock %}
+
+{% block script %}
+  <script src="/admin.js"></script>
+{% endblock %}

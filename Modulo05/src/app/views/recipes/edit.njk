@@ -1,0 +1,57 @@
+{% extends "recipes/layout.njk" %}
+
+{% block content %}
+
+  <div class="form">
+    <h1 class="title -form">Editando receita</h1>
+
+    <form action="/admin/recipes?_method=DELETE" method="post">
+      <input type="hidden" name="id" value="{{ recipe.id }}">
+      <button class="button -alt" type="submit">Deletar</button>
+    </form>
+
+    <form method="POST" action="/admin/recipes?_method=PUT">
+
+      <button class="button" type="submit">Salvar receita</button>
+
+      <div class="inputs">
+        <input type="hidden" name="id" value="{{ recipe.id }}">
+
+        <label class="label" for="image">Imagem da receita</label>
+        <input name="image" class="input" type="url" id="image" value="{{ recipe.image }}">
+
+        <label class="label" for="title">Nome da receita</label>
+        <input name="title" class="input" type="text" id="title" value="{{ recipe.title }}">
+
+        <label class="label" for="author">Autor da receita</label>
+        <select class="input" name="author" id="author">
+          {% for chef in chefOptions %}
+            <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected="selected" {% endif %} >{{chef.name}}</option>
+          {% endfor %}
+        </select>
+        
+        <label class="label" for="ingredients">Ingredientes</label>
+        {% for item in recipe.ingredients %}
+          <input name="ingredients" class="input -alt" type="text" value="{{ item }}">
+        {% endfor %}
+        <a class="link" data-ref="ingredients">Adicionar novo ingrediente</a>
+
+        <label class="label" for="preparation">Modo de preparo</label>
+        {% for item in recipe.preparation %}
+          <input name="preparation" class="input -alt" type="text" value="{{ item }}">
+        {% endfor %}
+        <a class="link" data-ref="preparation">Adicionar novo passo</a>
+
+        <label class="label" for="information">Informações adicionais</label>
+        <textarea name="information" class="input -big" id="information">{{ recipe.information }}</textarea>
+      </div>
+
+    </form>
+
+  </div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="/admin.js"></script>
+{% endblock %}

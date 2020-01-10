@@ -1,0 +1,36 @@
+{% extends "chefs/layout.njk" %}
+
+{% block content %}
+
+  <div class="form">
+    <h1 class="title -form">Editando Chef</h1>
+
+    <form action="/admin/chefs?_method=DELETE" method="post">
+      <input type="hidden" name="id" value="{{ chef.id }}">
+      <button class="button -alt" type="submit">Deletar</button>
+    </form>
+
+    <form method="POST" action="/admin/chefs?_method=PUT">
+
+      <button class="button" type="submit">Salvar chef</button>
+
+      <div class="inputs">
+        <input type="hidden" name="id" value="{{ chef.id }}">
+
+        <label class="label" for="avatar_url">Imagem da receita</label>
+        <input name="avatar_url" class="input" type="text" id="avatar_url" value="{{ chef.avatar_url }}">
+
+        <label class="label" for="name">Nome do chef</label>
+        <input name="name" class="input" type="text" id="name" value="{{ chef.name }}">
+
+     </div>
+
+    </form>
+
+  </div>
+
+{% endblock %}
+
+{% block script %}
+  <script src="/admin.js"></script>
+{% endblock %}
